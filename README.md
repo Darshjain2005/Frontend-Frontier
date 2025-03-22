@@ -23,5 +23,17 @@ This project is a **frontend-only** implementation of an **IRCTC-inspired train 
 - **CSS** – Styling for a visually appealing design
 - **JavaScript** – Handles interactivity (e.g., password toggle)
 - **Font Awesome** – Icons for UI elements
-- 
+
+Download or Clone the Repository
+
+git clone https://github.com/Darshjain2005/Frontend-Frontier.git
+
+Open the Project Using Live Server
+
+Open the project folder in VS Code.
+
+Install the Live Server extension (if not already installed).
+
+Right-click on login.html or register.html and select Open with Live Server.
+
 📌 **Note:** This project is a **frontend-only** prototype and does not include actual ticket booking functionality.
