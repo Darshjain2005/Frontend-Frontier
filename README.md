@@ -32,6 +32,10 @@ Open the Project Using Live Server
 
 Open the project folder in VS Code.
 
+## 🌍 Deployed Website
+Live here: [Link to website](frontend-frontier-pi.vercel.app) 
+
+
 Install the Live Server extension (if not already installed).
 
 Right-click on login.html or register.html and select Open with Live Server.
