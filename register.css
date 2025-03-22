@@ -1,0 +1,152 @@
+body {
+    background-color: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+.background-image {
+    background-image: url('/images/vande-bharat.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.register-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+
+.title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 38px;
+    cursor: pointer;
+    color: #666;
+}
+
+.form-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.sign-up-button {
+    background-color: #007bff;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sign-up-button:hover {
+    background-color: #0056b3;
+}
+
+.text-center {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.login-text {
+    color: #666;
+}
+
+.login-link {
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.login-link:hover {
+    color: #0056b3;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.body-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.register-container {
+    flex-grow: 1; /* Pushes the footer down */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers content vertically */
+}
+
+.footer {
+    text-align: center;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    width: 100%;
+    margin-top: auto;
+    color: white; /* Ensures text is visible on a dark background */
+}
+.footer a {
+    color: #00aaff; /* Light blue for better contrast */
+    text-decoration: none;
+}
+.footer a:hover {
+    text-decoration: underline;
+}

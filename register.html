@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<title>Register Page</title>
+	<link href="register.css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+</head>
+<body class="body-container">
+	<div class="background-image"></div>
+	<div class="register-container">
+		<h2 class="title">Create an Account</h2>
+		<p class="subtitle">Please fill in the form to create an account</p>
+		<form action="#" method="post">
+			<div class="form-group">
+				<label for="username">Username</label> <input id="username" name="username" placeholder="Enter your username" required="" type="text">
+			</div>
+			<div class="form-group">
+				<label for="email">Email</label> <input id="email" name="email" placeholder="Enter your email" required="" type="email">
+			</div>
+			<div class="form-group relative">
+				<label for="password">Password</label> <input id="password" name="password" placeholder="Enter your password" required="" type="password"> <i class="fas fa-eye toggle-password"></i> <!-- Removed ID, used class -->
+			</div>
+			<div class="form-group relative">
+				<label for="confirm-password">Confirm Password</label> <input id="confirm-password" name="confirm_password" placeholder="Confirm your password" required="" type="password"> <i class="fas fa-eye toggle-password"></i> <!-- Removed ID, used class -->
+			</div>
+			<div class="form-footer">
+				<button class="sign-up-button" type="submit">Sign Up</button> <!-- Changed to 'submit' -->
+			</div>
+			<div class="text-center">
+				<p class="login-text">Already have an account? <a class="login-link" href="login.html">Login</a></p>
+			</div>
+		</form>
+	</div>
+	<footer class="footer">
+		<p>Images used on this site belong to their respective owners.</p>
+		<p>IRCTC logo & Indian Railways logo are the property of <a href="https://www.irctc.co.in" target="_blank">IRCTC</a> and <a href="https://indianrailways.gov.in" target="_blank">Indian Railways</a>.</p>
+	</footer>
+	<script src="scripts.js">
+	</script>
+</body>
+</html>
