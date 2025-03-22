@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<title>Indian Railways</title>
+	<link href="styles.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<div class="logo-container"><img alt="IRCTC logo" src="images/logo.png"> <img alt="Indian Railways logo" src="images/secondry-logo.png"></div>
+			<div class="header-buttons">
+				<button class="bg-orange" onclick="location.href='login.html'">Login</button> <button onclick="location.href='register.html'">Register</button>
+			</div>
+		</div>
+		<div class="main-content">
+			<div class="left-section">
+				<h1>Indian Railways</h1>
+				<div class="tags">
+					<span class="text-green">Safety</span> <span class="text-orange">Security</span> <span class="text-blue">Punctuality</span>
+				</div>
+				<div class="buttons">
+					<button class="bg-blue active-btn" id="book-btn" onclick="showBookingForm()">BOOK Ticket</button> <button id="pnr-btn" onclick="showPNRBlock()">PNR Status</button>
+				</div><!-- Booking Form -->
+				<div class="form-section">
+					<div class="form-group">
+						<label>From</label>
+						<div class="input-group">
+							<select id="from-location" onchange="updateFromDetails()">
+								<option data-station="JN - ADI (AHMEDABAD)" value="Ahmedabad">
+									Ahmedabad
+								</option>
+								<option data-station="CSTM - CSMT (MUMBAI)" value="Mumbai">
+									Mumbai
+								</option>
+								<option data-station="HWH - HOWRAH (KOLKATA)" value="Kolkata">
+									Kolkata
+								</option>
+							</select>
+							<p id="from-details">JN - ADI (AHMEDABAD)</p>
+						</div>
+					</div>
+					<div class="form-group">
+						<label>To</label>
+						<div class="input-group">
+							<select id="to-location" onchange="updateToDetails()">
+								<option data-station="DLI (NEW DELHI)" value="DELHI">
+									DELHI
+								</option>
+								<option data-station="MAS (CHENNAI CENTRAL)" value="Chennai">
+									Chennai
+								</option>
+								<option data-station="SBC (BANGALORE)" value="Bangalore">
+									Bangalore
+								</option>
+							</select>
+							<p id="to-details">DLI (NEW DELHI)</p>
+						</div>
+					</div>
+					<div class="form-group">
+						<label>Date</label> <input id="date" type="date">
+						<p>Select a date after 20th March 2025</p>
+					</div>
+					<div class="form-group">
+						<label>Select Train</label> <select id="train-selection">
+							<option value="">
+								--Select Train--
+							</option>
+							<option value="Rajdhani Express">
+								Rajdhani Express
+							</option>
+							<option value="Shatabdi Express">
+								Shatabdi Express
+							</option>
+							<option value="Duronto Express">
+								Duronto Express
+							</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label>Select Class</label> <select id="class-selection">
+							<option value="">
+								--Select Class--
+							</option>
+							<option value="1AC">
+								1AC
+							</option>
+							<option value="2AC">
+								2AC
+							</option>
+							<option value="3AC">
+								3AC
+							</option>
+							<option value="Sleeper">
+								Sleeper
+							</option>
+						</select>
+					</div><!-- Message Box for Errors/Warnings -->
+					<div class="message" id="message-box" style="display: none;"></div><!-- Booking Form -->
+					<div class="form-section">
+						<div class="form-group">
+							<label>Number of Passengers</label> <input id="num-passengers" max="6" min="1" onchange="updatePassengerFields()" type="number" value="1">
+						</div><!-- Passenger Details (Generated Dynamically) -->
+						<div id="passenger-details"></div>
+						<div class="form-group">
+							<label>Special Category</label><br>
+							<input id="senior" type="checkbox"> Senior Citizen <input id="disabled" type="checkbox"> Disabled
+						</div><!-- New Book Ticket Button -->
+						<button id="book-ticket-btn" onclick="bookTicket()">Book Ticket</button>
+					</div><!-- Booking Confirmation Section -->
+					<div class="status-section" id="booking-confirmation" style="display: none;"></div>
+				</div><!-- PNR Status Block -->
+				<div class="form-section" id="pnr-modal" style="display: none;">
+					<h2>Check PNR Status</h2>
+					<div class="form-group">
+						<label for="pnr-number">Enter PNR Number</label> <input id="pnr-number" placeholder="Enter 10-digit PNR" type="text">
+					</div><button onclick="checkPNRStatus()">Check Status</button>
+					<div class="status-section" id="pnr-status"></div>
+				</div>
+			</div>
+			<div class="right-section">
+				<div class="slider-container">
+					<div class="slider"><img alt="Vande Bharat Train" src="images/vande-bharat.jpg"> <img alt="Second Train" src="images/train3.png"> <img alt="Third Train" src="images/pic3.jpeg"> <img alt="Fourth Train" src="images/pic4.jpeg"></div>
+				</div><!-- Train Tracking Section -->
+				<div class="form-container">
+					<h2>Track Your Train</h2><input id="train-number" placeholder="Enter train number" type="text"> <input id="journey-date" type="date"> <button onclick="trackTrain()">Track Train</button>
+					<div class="status-section" id="train-status"></div>
+				</div><!-- Train List Section -->
+				<div class="train-list">
+					<h2>Available Trains</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>Train No</th>
+								<th>Train Name</th>
+								<th>Route</th>
+								<th>Classes</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>12951</td>
+								<td>Rajdhani Express</td>
+								<td>Mumbai → Delhi</td>
+								<td>1AC, 2AC, 3AC</td>
+							</tr>
+							<tr>
+								<td>12009</td>
+								<td>Shatabdi Express</td>
+								<td>Ahmedabad → Mumbai</td>
+								<td>1AC, 2AC, CC</td>
+							</tr>
+							<tr>
+								<td>12245</td>
+								<td>Duronto Express</td>
+								<td>Kolkata → Chennai</td>
+								<td>1AC, 2AC, 3AC, Sleeper</td>
+							</tr>
+							<tr>
+								<td>22439</td>
+								<td>Vande Bharat Express</td>
+								<td>Delhi → Varanasi</td>
+								<td>EC, CC</td>
+							</tr>
+							<tr>
+								<td>12627</td>
+								<td>Karnataka Express</td>
+								<td>Bangalore → Delhi</td>
+								<td>1AC, 2AC, 3AC, Sleeper</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer class="footer">
+		<p>Images used on this site belong to their respective owners.</p>
+		<p>IRCTC logo & Indian Railways logo are the property of <a href="https://www.irctc.co.in" target="_blank">IRCTC</a> and <a href="https://indianrailways.gov.in" target="_blank">Indian Railways</a>.</p>
+	</footer>
+    <script src="script.js"></script>
+</body>
+</html>
